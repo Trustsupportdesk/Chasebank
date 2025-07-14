@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chase Bank Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container" id="loginContainer">
+    <div class="logo-placeholder">LOGO HERE</div>
+    <h2>Chase Bank Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <button class="biometric-button" onclick="simulateBiometricLogin()">Login with Biometrics</button>
+    <div class="error" id="error"></div>
+  </div>
+
+  <div class="dashboard" id="dashboard" style="display: none;">
+    <h2>Welcome, <span id="userDisplay"></span></h2>
+    <div class="balance">
+      <p><strong>Checking Account:</strong> $865,076</p>
+      <p><strong>Savings Account:</strong> $344,865</p>
+    </div>
+
+    <h3>Recent Transaction</h3>
+    <div class="transaction">
+      <p><strong>Type:</strong> Deposit</p>
+      <p><strong>Amount:</strong> $265,098</p>
+      <p><strong>Date:</strong> 15/02/2025</p>
+    </div>
+
+    <h3>Transfer History</h3>
+    <div id="history"></div>
+
+    <div class="options">
+      <button onclick="showTransferPage()">Transfer Funds</button>
+      <button>View Account Details</button>
+      <button>Transaction History</button>
+      <button>Pay Bills</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="transfer-page" id="transferPage" style="display: none;">
+    <h2>Transfer Funds</h2>
+    <input type="text" id="accNum" placeholder="Recipient Account Number" />
+    <select id="accType">
+      <option value="Checking">Checking</option>
+      <option value="Savings">Savings</option>
+    </select>
+    <select id="transType">
+      <option value="Domestic">Domestic Transfer</option>
+      <option value="International">International Transfer</option>
+    </select>
+    <input type="text" id="recName" placeholder="Recipient Name" />
+    <input type="text" id="amount" placeholder="Amount" />
+    <button onclick="submitTransfer()">Submit Transfer</button>
+    <button onclick="goBack()">Cancel</button>
+  </div>
+
+  <div id="popup">
+    <p id="popupMessage"></p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
